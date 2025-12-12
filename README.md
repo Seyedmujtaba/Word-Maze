@@ -117,7 +117,9 @@ Example:
 
 {
   "Animals": ["dog", "cat", "horse"],
+  
   "Fruits": ["apple", "banana", "orange"],
+  
   "Colors": ["red", "green", "yellow"]
 }
 
