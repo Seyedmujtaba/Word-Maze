@@ -54,27 +54,46 @@ Saved in JSON format:
 ## 📂 Suggested Project Structure
 
 Word-Maze/
+
 │
+
 ├── assets/
+
 │ ├── icons/
+
 │ └── themes/
+
 │
+
 ├── data/
+
 │ ├── words.json
+
 │ └── save_data.json
+
 │
+
 ├── src/
+
 │ ├── main.py
+
 │ ├── ui_main.py
+
 │ ├── game_state.py
+
 │ ├── logic_handler.py
+
 │ └── utils.py
+
 │
 ├── docs/
-│ ├── GDD_English_Designed.pdf
-│ ├── GDD_English_Designed_Graphic.pdf
+
+│ ├── word-maze.pdf
+
 │ └── README_images/
+
 │
+
 └── README.md
 
 
