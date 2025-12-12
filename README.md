@@ -116,11 +116,13 @@ Located in: data/words.json
 Example:
 
 {
+
   "Animals": ["dog", "cat", "horse"],
   
   "Fruits": ["apple", "banana", "orange"],
   
   "Colors": ["red", "green", "yellow"]
+  
 }
 
 Game Settings
