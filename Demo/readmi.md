@@ -46,14 +46,9 @@ python Demo.py
 ```
 ## Screenshots
 
-**Main Screen**  
-![Main Screen]([Word-Maze/blob/main/Demo/screenshots/Screenshot%20(13).png](https://github.com/Seyedmujtaba/Word-Maze/blob/main/Demo/screenshots/Screenshot%20(13).png))
-
-**Gameplay**  
-![Gameplay](screenshots/word-maze-demo-2.png)
-
-**Result State**  
-![Result](screenshots/word-maze-demo-3.png)
+![Word-Maze Demo – Screen 1](Demo/screenshots/word-maze-1.png)
+![Word-Maze Demo – Screen 2](Demo/screenshots/word-maze-2.png)
+![Word-Maze Demo – Screen 3](Demo/screenshots/word-maze-3.png)
 
 ## Notes
 
