@@ -39,12 +39,15 @@ This project is a **demo / pre-release preview** of the main Word-Maze game.
 pip install PyQt5 BlurWindow
 ```
 
-```md
+---
+
 ## Run
 ```bash
 cd <directory-location>
 python Demo.py
 ```
+
+---
 
 ## Screenshots
 
@@ -52,11 +55,9 @@ python Demo.py
 ![Screen 2](screenshots/word-maze-2.png)
 ![Screen 3](screenshots/word-maze-3.png)
 
+---
 
 ## Notes
-
-This repository contains only a demo
-
-It is intended for preview and demonstration purposes
-
-Features may be incomplete or simplified compared to the main project
+- This repository contains only a demo
+- It is intended for preview and demonstration purposes
+- Features may be incomplete or simplified compared to the main project
