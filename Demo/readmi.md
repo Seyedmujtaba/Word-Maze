@@ -40,7 +40,7 @@ pip install PyQt5 BlurWindow
 ```
 
 ## Run
-cd <project-directory>
+cd {directory location}
 ```bash
 python Demo.py
 ```
