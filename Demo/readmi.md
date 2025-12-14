@@ -46,9 +46,10 @@ python Demo.py
 ```
 ## Screenshots
 
-![Word-Maze Demo – Screen 1](Demo/screenshots/word-maze-1.png)
-![Word-Maze Demo – Screen 2](Demo/screenshots/word-maze-2.png)
-![Word-Maze Demo – Screen 3](Demo/screenshots/word-maze-3.png)
+![Screen 1](screenshots/word-maze-1.png)
+![Screen 2](screenshots/word-maze-2.png)
+![Screen 3](screenshots/word-maze-3.png)
+
 
 ## Notes
 
