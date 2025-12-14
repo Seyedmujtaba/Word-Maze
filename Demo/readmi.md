@@ -47,7 +47,7 @@ python Demo.py
 ## Screenshots
 
 **Main Screen**  
-![Main Screen](Word-Maze/blob/main/Demo/screenshots/Screenshot%20(13).png)
+![Main Screen]([Word-Maze/blob/main/Demo/screenshots/Screenshot%20(13).png](https://github.com/Seyedmujtaba/Word-Maze/blob/main/Demo/screenshots/Screenshot%20(13).png))
 
 **Gameplay**  
 ![Gameplay](screenshots/word-maze-demo-2.png)
