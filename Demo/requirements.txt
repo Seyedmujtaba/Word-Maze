@@ -1,9 +1,0 @@
-1) Python
-- Python 3.8 or newer (recommended: 3.10+)
-
-2) Required Python Packages
-- PyQt5
-- BlurWindow
-
-Install via pip:
-pip install PyQt5 BlurWindow
