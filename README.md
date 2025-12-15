@@ -30,7 +30,7 @@ This project is ideal for Python beginners and intermediate developers who want 
 - Difficulty modes: **Easy**, **Medium**, **Hard**  
 
 ### 🖥️ UI / UX  
-- Glass-style iOS-like design  
+- Glass-style design  
 - Rounded transparent panels  
 - Lives displayed as circular indicators  
 - Clean, minimal, readable layout  
