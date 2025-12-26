@@ -3,11 +3,7 @@ import random
 
 class GameState:
     """
-    - Tracks the current word
-    - Records guessed letters
-    - Calculates score, mistakes
-    - Use hint which reveals a hidden letter and gives -hintcost points
-    - At the end, finish_round() returns the final score (with bonus if it was won without mistakes)
+    Keeps game state for a single round.
     """
 
     lives = 8
@@ -28,7 +24,6 @@ class GameState:
         self.revealed = set()
         self.hint_used = False
 
-        # reveal non-letter ch
         for i, ch in enumerate(self.word):
             if not ch.isalpha():
                 self.revealed.add(i)
@@ -118,14 +113,11 @@ class GameState:
         bonus = 0
         if self.is_won() and self.mistakes == 0:
             bonus = self.perfect_win
-            self.score += bonus
 
         return {
-            "final_score": self.score,
+            "round_score": self.score + bonus,
+            "won": self.is_won(),
             "bonus": bonus,
             "mistakes": self.mistakes
         }
-
-    def reset(self, new_word: str) -> None:
-        self.__init__(new_word)
 
