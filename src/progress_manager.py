@@ -44,3 +44,6 @@ def update(path, result):
 # when the game ended
 def reset_progress(path):
     save_progress(path, default.copy())
+
+load_progress = progress
+update_progress = update
