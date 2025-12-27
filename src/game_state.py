@@ -28,6 +28,11 @@ class GameState:
             if not ch.isalpha():
                 self.revealed.add(i)
 
+    @property
+    def lives_left(self) -> int:
+        # Alias فقط برای خوانایی (life دست نخورده می‌ماند)
+        return self.life
+
     def masked(self) -> str:
         result = []
         for i, ch in enumerate(self.word):
@@ -40,12 +45,14 @@ class GameState:
     # guess the letter
     def guess(self, letter: str) -> dict:
         if not letter or len(letter) != 1 or not letter.isalpha():
-            return {"error": "invalid input"}
+            # کلید قبلی حفظ شده + وضعیت فعلی هم اضافه شده
+            return {"error": "invalid input", "lives": self.life, "score": self.score}
 
         letter = letter.upper()
 
         if letter in self.guessed:
-            return {"already_guessed": True}
+            # کلید قبلی حفظ شده + وضعیت فعلی هم اضافه شده
+            return {"already_guessed": True, "lives": self.life, "score": self.score}
 
         self.guessed.add(letter)
 
@@ -58,34 +65,41 @@ class GameState:
             gained = len(indices) * self.correct_letter
             self.score += gained
 
+            # همان کلیدها + lives برای یکدستی اضافه شد
             return {
                 "correct": True,
                 "points": gained,
-                "score": self.score
+                "score": self.score,
+                "lives": self.life
             }
 
         # wrong guesses
         self.life -= 1
         self.mistakes += 1
 
+        # همان کلیدها + score برای یکدستی اضافه شد
         return {
             "correct": False,
-            "lives": self.life
+            "lives": self.life,
+            "score": self.score
         }
 
     def use_hint(self) -> dict:
         if self.is_lost() or self.is_won():
-            return {"used": False}
+            # رفتار قبلی حفظ شده + score برای یکدستی اضافه شد
+            return {"used": False, "score": self.score}
 
         if self.score < self.hint_cost:
+            # کلیدهای قبلی حفظ شده + score اضافه شد
             return {
                 "used": False,
-                "reason": "not_enough_score"
+                "reason": "not_enough_score",
+                "score": self.score
             }
 
         hidden_indices = [i for i in range(len(self.word)) if i not in self.revealed]
         if not hidden_indices:
-            return {"used": False}
+            return {"used": False, "score": self.score}
 
         index = random.choice(hidden_indices)
         letter = self.word[index]
@@ -120,4 +134,3 @@ class GameState:
             "bonus": bonus,
             "mistakes": self.mistakes
         }
-
