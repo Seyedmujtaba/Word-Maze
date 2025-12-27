@@ -13,6 +13,12 @@ def load(file_path):
     used = set()
 
 
+def load_data(obj):
+    global data, used
+    data = obj
+    used = set()
+
+
 def categories():
     return list(data.keys())
 
@@ -56,4 +62,3 @@ def random_word(category=None, difficulty=None):
     used.add(word)
 
     return word
-
