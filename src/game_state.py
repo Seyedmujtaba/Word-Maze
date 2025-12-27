@@ -2,10 +2,6 @@ import random
 
 
 class GameState:
-    """
-    Keeps game state for a single round.
-    """
-
     lives = 8
     hint_cost = 20
     correct_letter = 10
@@ -30,7 +26,6 @@ class GameState:
 
     @property
     def lives_left(self) -> int:
-        # Alias فقط برای خوانایی (life دست نخورده می‌ماند)
         return self.life
 
     def masked(self) -> str:
@@ -42,16 +37,13 @@ class GameState:
                 result.append("_")
         return " ".join(result)
 
-    # guess the letter
     def guess(self, letter: str) -> dict:
         if not letter or len(letter) != 1 or not letter.isalpha():
-            # کلید قبلی حفظ شده + وضعیت فعلی هم اضافه شده
             return {"error": "invalid input", "lives": self.life, "score": self.score}
 
         letter = letter.upper()
 
         if letter in self.guessed:
-            # کلید قبلی حفظ شده + وضعیت فعلی هم اضافه شده
             return {"already_guessed": True, "lives": self.life, "score": self.score}
 
         self.guessed.add(letter)
@@ -65,7 +57,6 @@ class GameState:
             gained = len(indices) * self.correct_letter
             self.score += gained
 
-            # همان کلیدها + lives برای یکدستی اضافه شد
             return {
                 "correct": True,
                 "points": gained,
@@ -73,11 +64,9 @@ class GameState:
                 "lives": self.life
             }
 
-        # wrong guesses
         self.life -= 1
         self.mistakes += 1
 
-        # همان کلیدها + score برای یکدستی اضافه شد
         return {
             "correct": False,
             "lives": self.life,
@@ -86,11 +75,9 @@ class GameState:
 
     def use_hint(self) -> dict:
         if self.is_lost() or self.is_won():
-            # رفتار قبلی حفظ شده + score برای یکدستی اضافه شد
             return {"used": False, "score": self.score}
 
         if self.score < self.hint_cost:
-            # کلیدهای قبلی حفظ شده + score اضافه شد
             return {
                 "used": False,
                 "reason": "not_enough_score",
