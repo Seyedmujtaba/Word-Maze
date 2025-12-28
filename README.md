@@ -109,7 +109,7 @@ Word-Maze/
 
 ### ▶ Windows (Recommended)
 Download precompiled executables from:
-👉 https://github.com/Seyedmujtaba/Word-Maze/releases
+👉 [Download Latest version](https://github.com/Seyedmujtaba/Word-Maze/releases)
 
 ### ▶ Run from Source
 ```bash
@@ -157,12 +157,12 @@ python main.py
 
 ## 👥 Team
 
-### 👩‍💻 Ayla Rasouli
+### 👩‍💻 [Ayla Rasouli](https://github.com/aylarasouli)
 - Core game logic
 - Word loader & dataset
 - Progress management
 
-### 👨‍💻 Seyedmujtaba Tabatabaee
+### 👨‍💻 [Seyedmujtaba Tabatabaee](https://github.com/Seyedmujtaba)
 - UI & main window
 - Persistent save system
 - Documentation & demos
