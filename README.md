@@ -201,8 +201,7 @@ run run.bat
   ### - [Ayla Rasouli](https://github.com/aylarasouli)
     src/progress_manager.py
     src/word_loader.py
-    src/main.py
-    data/words.json
+    
 
   ### - [Seyedmujtaba Tabatabaee](https://github.com/Seyedmujtaba)
     README.md  
@@ -211,6 +210,8 @@ run run.bat
     src/main_window.py
     run.bat
     data/save_data.json
+    src/main.py
+    data/words.json
 
 ---
 
