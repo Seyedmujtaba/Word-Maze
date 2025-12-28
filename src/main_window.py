@@ -2,7 +2,7 @@ import os
 import sys
 
 from PyQt5.QtCore import Qt, pyqtSignal, QSize
-from PyQt5.QtGui import QFont, QPixmap, QColor
+from PyQt5.QtGui import QFont, QPixmap, QColor, QIcon
 from PyQt5.QtWidgets import (
     QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout, QGridLayout,
     QLabel, QPushButton, QStackedWidget, QFrame, QComboBox, QLineEdit,
@@ -277,11 +277,14 @@ class MainMenuScreen(QWidget):
         top_row = QHBoxLayout()
         top_row.addStretch()
 
-        self.btn_theme = QPushButton("Dark Mode")
+        self.btn_theme = QPushButton("")
         self.btn_theme.setObjectName("ThemeButton")
-        self.btn_theme.setFixedHeight(S(52))
-        self.btn_theme.setFixedWidth(S(220))
+        self.btn_theme.setFixedSize(S(64), S(64))
         self.btn_theme.setFont(QFont("Segoe UI", F(15), QFont.Bold))
+        self.btn_theme.setIconSize(QSize(S(34), S(34)))
+        self._icon_moon = QIcon(assets_path("assets", "icons", "dark.png"))
+        self._icon_sun = QIcon(assets_path("assets", "icons", "light.png"))
+        self.btn_theme.setIcon(self._icon_moon)
         self.btn_theme.clicked.connect(self._toggle_theme)
         top_row.addWidget(self.btn_theme)
 
@@ -422,7 +425,8 @@ class MainMenuScreen(QWidget):
 
     def _toggle_theme(self):
         self._dark = not self._dark
-        self.btn_theme.setText("Light Mode" if self._dark else "Dark Mode")
+        self.btn_theme.setText("")
+        self.btn_theme.setIcon(self._icon_sun if self._dark else self._icon_moon)
         self.theme_toggled.emit(self._dark)
 
 
@@ -540,7 +544,7 @@ class GameScreen(QWidget):
 
         self.lbl_msg = QLabel("Pick a letter to begin")
         self.lbl_msg.setAlignment(Qt.AlignCenter)
-        self.lbl_msg.setStyleSheet(f"font-size: {F(13)}px; color: rgba(248,250,252,0.75);")
+        self.lbl_msg.setStyleSheet(f"font-size: {F(40)}px; color: rgba(248,250,252,0.75);")
 
         status.addWidget(self.lbl_title)
         status.addWidget(self.lbl_msg)
@@ -558,9 +562,11 @@ class GameScreen(QWidget):
         self.lives_layout.setAlignment(Qt.AlignCenter)
 
         keyboard_card = GlassCard()
+        keyboard_card.setSizePolicy(QSizePolicy.Maximum, QSizePolicy.Fixed)
         keyboard = QGridLayout(keyboard_card)
         keyboard.setContentsMargins(S(28), S(24), S(28), S(24))
-        keyboard.setSpacing(S(12))
+        keyboard.setSpacing(S(16))
+        keyboard.setAlignment(Qt.AlignCenter)
 
         rows = ["QWERTYUIOP", "ASDFGHJKL", "ZXCVBNM"]
         start_cols = [0, 1, 2]
@@ -611,7 +617,7 @@ class GameScreen(QWidget):
         right.addWidget(self.status_card)
         right.addWidget(self.slots_container)
         right.addWidget(self.lives_container)
-        right.addWidget(keyboard_card)
+        right.addWidget(keyboard_card, 0, Qt.AlignCenter)
         right.addLayout(bottom)
 
         main.addLayout(right, 1)
@@ -624,6 +630,8 @@ class GameScreen(QWidget):
         self.lbl_player.setText(f"Player: {player_name}")
         self.lbl_cat.setText(f"Category: {category}")
         self.lbl_diff.setText(f"Difficulty: {difficulty}")
+
+        self.lbl_msg.setText("Pick a letter to begin")
 
         self.state = GameState(word)
         self._rebuild_slots()
@@ -666,11 +674,19 @@ class GameScreen(QWidget):
     def _rebuild_lives(self):
         clear_layout(self.lives_layout)
         self.life_dots = []
-        size = S(18)
+
+        if not hasattr(self, "_life_pix_full"):
+            self._life_pix_full = QPixmap(assets_path("assets", "icons", "full.png"))
+            self._life_pix_empty = QPixmap(assets_path("assets", "icons", "empty.png"))
+
+        size = S(30)
+        full_scaled = self._life_pix_full.scaled(size, size, Qt.KeepAspectRatio, Qt.SmoothTransformation)
+
         for _ in range(self.state.lives):
             dot = QLabel()
             dot.setFixedSize(size, size)
-            dot.setStyleSheet(f"background-color: rgba(248, 250, 252, 0.92); border-radius: {size // 2}px;")
+            dot.setAlignment(Qt.AlignCenter)
+            dot.setPixmap(full_scaled)
             self.lives_layout.addWidget(dot)
             self.life_dots.append(dot)
 
@@ -695,12 +711,18 @@ class GameScreen(QWidget):
     def _sync_lives(self):
         if self.state is None:
             return
-        size = S(18)
+
+        if not hasattr(self, "_life_pix_full"):
+            self._life_pix_full = QPixmap(assets_path("assets", "icons", "full.png"))
+            self._life_pix_empty = QPixmap(assets_path("assets", "icons", "empty.png"))
+
+        size = S(30)
+        full_scaled = self._life_pix_full.scaled(size, size, Qt.KeepAspectRatio, Qt.SmoothTransformation)
+        empty_scaled = self._life_pix_empty.scaled(size, size, Qt.KeepAspectRatio, Qt.SmoothTransformation)
+
         for i, dot in enumerate(self.life_dots):
-            if i < self.state.lives_left:
-                dot.setStyleSheet(f"background-color: rgba(248, 250, 252, 0.92); border-radius: {size // 2}px;")
-            else:
-                dot.setStyleSheet(f"background-color: rgba(248, 250, 252, 0.22); border-radius: {size // 2}px;")
+            dot.setPixmap(full_scaled if i < self.state.lives_left else empty_scaled)
+
         self.lbl_lives.setText(f"Lives: {self.state.lives_left}")
 
     def _sync_preview(self):
