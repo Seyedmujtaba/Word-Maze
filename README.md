@@ -78,6 +78,30 @@ This project demonstrates:
 
 ---
 
+## 🗂️ File Overview
+A brief description of the main files and directories in the project.
+
+### 🔹 Source Code (`src/`)
+- **`main.py`** — Application entry point; initializes the game and launches the UI.
+- **`ui_main.py`** — Handles UI layout and widget creation using PyQt5.
+- **`game_state.py`** — Manages the current game state (word, guesses, lives, progress).
+- **`logic_handler.py`** — Core gameplay logic; input handling, validation, and win/lose conditions.
+- **`utils.py`** — Shared helper and utility functions.
+
+### 🔹 Data (`data/`)
+- **`words.json`** — Word lists and categories used in the game.
+- **`save_data.json`** — Persistent storage for player progress, settings, and leaderboard data.
+
+### 🔹 Assets (`assets/`)
+- **`icons/`** — UI icon resources.
+- **`themes/`** — Theme assets including colors, styles, and backgrounds.
+
+### 🔹 Documentation (`docs/`)
+- **`word-maze.pdf`** — Detailed project documentation and design description.
+- **`README_images/`** — Images used within the README file.
+
+---
+
 ## 🏗️ Architecture
 
 ```
