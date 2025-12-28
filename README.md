@@ -1,141 +1,200 @@
-# Word-Maze 
-A Python + PyQt5 Word Puzzle Game  
-**Created by:** *Seyedmujtaba Tabatabaee & Ayla Rasouli*
+<div align="center">
+
+# 🧩✨ **Word Maze**
+### *A Polished PyQt5 Word Puzzle Experience*
+
+<img src="screenshots/Light_Game.png" width="600"/>
+
+**CS50 Final Project**  
+Built with ❤️ using **Python** & **PyQt5**
+
+[▶ Video Demo](#) • [⬇ Releases](https://github.com/Seyedmujtaba/Word-Maze/releases) • [📄 Documentation](docs/)
+
+</div>
 
 ---
 
-## 🎯 Overview  
-**Guess The Word** is a clean, modern, and visually polished word-guessing puzzle game built using **Python** and **PyQt5**.  
-Players select a category, guess letters from an on-screen keyboard, and try to reveal the hidden word before running out of lives.
+## 🚀 Introduction
 
-This project is ideal for Python beginners and intermediate developers who want to learn GUI programming while building a fully functional game.
+**Word Maze** is a visually rich, desktop-based word puzzle game designed to challenge players’ vocabulary, logic, and memory.  
+Players must uncover hidden words by selecting letters wisely while managing limited lives, difficulty levels, and score strategies.
 
----
-
-## ✨ Features  
-
-### 🧩 Core Gameplay  
-- Category selection (Animals, Fruits, Colors, etc.)  
-- Random word selection  
-- Word displayed as blank letter slots  
-- On-screen A–Z keyboard  
-- Correct / incorrect guess detection  
-- Win and Game Over screens  
-
-### 🎮 Game Mechanics  
-- +10 points for each correct letter  
-- –5 points for incorrect guesses  
-- +30 bonus for solving the word with zero mistakes  
-- Hint system (reveals one random letter)  
-- Difficulty modes: **Easy**, **Medium**, **Hard**  
-
-### 🖥️ UI / UX  
-- Glass-style design  
-- Rounded transparent panels  
-- Lives displayed as circular indicators  
-- Clean, minimal, readable layout  
-- Optional animations and effects  
-
-### 💾 Progress Saving  
-Saved in JSON format:
-- Total score  
-- Wins / Losses  
-- Best streak  
-- Hardest difficulty completed  
-- Leaderboard support  
-
-### 🧱 Technical Structure  
-- **GameState** → handles core game logic  
-- **MainWindow (PyQt5)** → handles all UI elements  
-- Modular, clean, and scalable architecture  
+This project demonstrates:
+- Event‑driven GUI programming
+- Structured game state management
+- Persistent local data storage
+- Clean separation of UI, logic, and assets
 
 ---
 
-## 📂 Suggested Project Structure
+## 🎥 Video Demo
+🎬 **CS50 Submission Video:** *(Add YouTube link here)*
 
+---
+
+## 🌟 Highlights
+
+✨ **Modern Desktop GUI** built with PyQt5  
+🎯 **Category‑based random words**  
+⌨️ **Interactive A–Z on‑screen keyboard**  
+🌓 **Light & Dark themes**  
+🧠 **Difficulty modes:** Easy / Medium / Hard  
+💡 **Hint system**  
+🏆 **Local leaderboard & score tracking**  
+💾 **Persistent progress (JSON)**  
+
+---
+
+## 🎮 Gameplay Overview
+
+| Mechanic | Description |
+|--------|-------------|
+| ❤️ Lives | Limited attempts per word |
+| 🧩 Guessing | Select letters to reveal the word |
+| 🎯 Scoring | +10 correct / –5 incorrect |
+| ⭐ Bonus | +30 for perfect completion |
+| 💡 Hint | Reveals one random letter |
+| 🏁 End States | Win & Game Over screens |
+
+---
+
+## 📸 Visual Showcase
+
+<details>
+<summary><strong>🌞 Light Theme</strong></summary>
+
+![Light Menu](screenshots/Light_Menu.png)  
+![Light Gameplay](screenshots/Light_Game.png)
+
+</details>
+
+<details>
+<summary><strong>🌙 Dark Theme</strong></summary>
+
+![Dark Menu](screenshots/Dark_Menu.png)  
+![Dark Gameplay](screenshots/Dark_Game.png)
+
+</details>
+
+---
+
+## 🏗️ Architecture
+
+```
 Word-Maze/
-
-│
-
 ├── assets/
-
-│ ├── icons/
-
-│ └── themes/
-
+│   ├── icons/            UI icons
+│   └── themes/           Light & dark themes
 │
-
 ├── data/
-
-│ ├── words.json
-
-│ └── save_data.json
-
+│   ├── words.json        Word lists & categories
+│   └── save_data.json    Scores & leaderboard
 │
-
 ├── src/
-
-│ ├── main.py
-
-│ ├── ui_main.py
-
-│ ├── game_state.py
-
-│ ├── logic_handler.py
-
-│ └── utils.py
-
+│   ├── main.py           App entry point
+│   ├── main_window.py    UI controller
+│   ├── game_state.py     State management
+│   ├── logic_handler.py  Core game logic
+│   └── utils.py          Shared utilities
 │
-├── docs/
-
-│ ├── word-maze.pdf
-
-│ └── README_images/
-
+├── demo/
+│   └── Demo.py           Minimal demo
 │
-
 └── README.md
-
+```
 
 ---
 
-## 🚀 Installation & Running
+## ⚙️ Installation & Usage
 
-### 1️⃣ Install Requirements  
+### ▶ Windows (Recommended)
+Download precompiled executables from:
+👉 https://github.com/Seyedmujtaba/Word-Maze/releases
+
+### ▶ Run from Source
+```bash
 pip install PyQt5
-
-
-### 2️⃣ Run the Game
 python main.py
+```
 
-⚙️ Configuration
-Word Categories
+---
 
-Located in: data/words.json
+## 🕹️ How to Play
 
-Example:
+1️⃣ Launch the game  
+2️⃣ Enter your player name  
+3️⃣ Select category & difficulty  
+4️⃣ Guess letters carefully  
+5️⃣ Solve the word before lives run out  
 
-{
+---
 
-  "Animals": ["dog", "cat", "horse"],
-  
-  "Fruits": ["apple", "banana", "orange"],
-  
-  "Colors": ["red", "green", "yellow"]
-  
-}
+## 🧠 Design Philosophy
 
-Game Settings
+- **PyQt5** chosen for advanced desktop GUI experience  
+- **Event‑driven architecture** for responsive gameplay  
+- **Persistent JSON storage** for progress & leaderboard  
+- **Modular design** for maintainability and clarity  
 
-Modify gameplay rules, animations, UI colors, and lives inside:
+---
 
-src/game_state.py
-src/main_window.py
+## ⚠️ Limitations
 
-📝 Credits
+- English language only  
+- Static word categories  
+- Local single‑player gameplay  
 
-Developed by:
+---
 
-Seyedmujtaba Tabatabaee
-Ayla Rasouli
+## 🔮 Future Roadmap
 
+🚀 More word categories  
+🎵 Sound effects & animations  
+🌐 Online leaderboard  
+📱 Cross‑platform packaging  
+
+---
+
+## 👥 Team
+
+### 👩‍💻 Ayla Rasouli
+- Core game logic
+- Word loader & dataset
+- Progress management
+
+### 👨‍💻 Seyedmujtaba Tabatabaee
+- UI & main window
+- Persistent save system
+- Documentation & demos
+
+---
+
+## Author Contributions
+  ### - [Ayla Rasouli](https://github.com/aylarasouli)
+    src/progress_manager.py
+    src/word_loader.py
+    src/main.py
+    data/words.json
+
+  ### - [Seyedmujtaba Tabatabaee](https://github.com/Seyedmujtaba)
+    README.md  
+    Demo/Demo.py
+    Demo/readmi.md
+    src/main_window.py
+    run.bat
+    data/save_data.json
+
+---
+
+## 📜 License
+
+This project is currently **unlicensed**.  
+An open‑source license (MIT recommended) may be added.
+
+---
+
+<div align="center">
+
+✨ *Designed with care. Built for challenge. Delivered for CS50.* ✨
+
+</div>
