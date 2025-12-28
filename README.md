@@ -115,6 +115,10 @@ Download precompiled executables from:
 ```bash
 pip install PyQt5
 python main.py
+
+or
+
+run run.bat
 ```
 
 ---
