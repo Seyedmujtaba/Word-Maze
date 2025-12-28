@@ -214,6 +214,19 @@ class AylaDialog(QDialog):
         outer.setContentsMargins(S(24), S(24), S(24), S(24))
 
         card = GlassCard()
+
+        bg = assets_path("assets", "icons", "full.png").replace("\\", "/")
+        card.setStyleSheet(
+            f"QFrame#GlassCard {{"
+            f"background-image: url('{bg}');"
+            f"background-position: center;"
+            f"background-repeat: no-repeat;"
+            f"background-color: rgba(15, 23, 42, 0.60);"
+            f"border: 1px solid rgba(255, 255, 255, 0.28);"
+            f"border-radius: 30px;"
+            f"}}"
+        )
+
         card.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
 
         lay = QVBoxLayout(card)
