@@ -1,41 +1,28 @@
-from src.main import main as game_main
-from src.word_loader import load_words
+from src.word_loader import load_word_list
 from src.progress_manager import ProgressManager
 from src.config import Config
-from src.game_state import GameState
 
 
 def main():
-    print("Starting Word Maze...")
     config = Config()
-    words = load_words(config.WORDS_PATH)
+    words = load_word_list(config.WORDS_PATH)
     progress = ProgressManager(config.SAVE_PATH)
-    state = GameState(words, progress)
-    game_main(state)
-    print("Game finished.")
+    progress.load_progress()
+    return words
 
 
 def load_word_data():
     config = Config()
-    words = load_words(config.WORDS_PATH)
-    print(f"{len(words)} words loaded.")
-    return words
+    return load_word_list(config.WORDS_PATH)
 
 
 def get_progress():
     config = Config()
     progress = ProgressManager(config.SAVE_PATH)
-    data = progress.load_progress()
-    print("Current progress:", data)
-    return data
+    return progress.load_progress()
 
 
 def reset_progress():
     config = Config()
     progress = ProgressManager(config.SAVE_PATH)
     progress.reset_progress()
-    print("Progress has been reset.")
-
-
-if __name__ == "__main__":
-    main()
