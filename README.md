@@ -28,7 +28,7 @@ This project demonstrates:
 ---
 
 ## 🎥 Video Demo
-🎬 **CS50 Submission Video:** *(Add YouTube link here)*
+🎬 **CS50 Submission Video:** *([click](https://youtu.be/NKC_lIpcXSA?si=QVkyMZJo-L8RxoHJ))*
 
 ---
 
