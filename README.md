@@ -8,7 +8,7 @@
 **CS50 Final Project**  
 Built with ❤️ using **Python** & **PyQt5**
 
-[▶ Video Demo](#) • [⬇ Releases](https://github.com/Seyedmujtaba/Word-Maze/releases) • [📄 Documentation](docs/)
+[▶ Video Demo](https://youtu.be/NKC_lIpcXSA?si=QVkyMZJo-L8RxoHJ) • [⬇ Releases](https://github.com/Seyedmujtaba/Word-Maze/releases) • [📄 Documentation](docs/)
 
 </div>
 
@@ -28,7 +28,7 @@ This project demonstrates:
 ---
 
 ## 🎥 Video Demo
-🎬 **CS50 Submission Video:** *([click](https://youtu.be/NKC_lIpcXSA?si=QVkyMZJo-L8RxoHJ))*
+🎬 **CS50 Submission Video:** *([here](https://youtu.be/NKC_lIpcXSA?si=QVkyMZJo-L8RxoHJ))*
 
 ---
 
