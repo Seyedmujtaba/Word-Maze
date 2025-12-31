@@ -60,21 +60,17 @@ This project demonstrates:
 
 ## 📸 Visual Showcase
 
-<details>
-<summary><strong>🌞 Light Theme</strong></summary>
+### 🌞 Light Theme
 
 ![Light Menu](screenshots/Light_Menu.png)  
 ![Light Gameplay](screenshots/Light_Game.png)
 
-</details>
+---
 
-<details>
-<summary><strong>🌙 Dark Theme</strong></summary>
+### 🌙 Dark Theme
 
 ![Dark Menu](screenshots/Dark_Menu.png)  
 ![Dark Gameplay](screenshots/Dark_Game.png)
-
-</details>
 
 ---
 
