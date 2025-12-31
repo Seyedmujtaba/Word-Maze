@@ -564,6 +564,7 @@ class GameScreen(QWidget):
 
         self.slots_container = QWidget()
         self.slots_container.setSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
+        self.slots_container.setMaximumHeight(S(260))
         self.slots_layout = QVBoxLayout(self.slots_container)
 
         self.slots_layout.setContentsMargins(0, 0, 0, 0)
@@ -632,8 +633,10 @@ class GameScreen(QWidget):
         right.addWidget(self.status_card)
         right.addWidget(self.slots_container)
         right.addWidget(self.lives_container)
+        right.addStretch(1)
         right.addWidget(keyboard_card, 0, Qt.AlignCenter)
         right.addLayout(bottom)
+
 
         main.addLayout(right, 1)
 
