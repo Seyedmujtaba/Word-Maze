@@ -3,7 +3,7 @@
 # 🧩✨ **Word Maze**
 ### *A Polished PyQt5 Word Puzzle Experience*
 
-<img src="screenshots/Light_Game.png" width="600"/>
+<img src="assets/LOGO/LOGO.png" width="600"/>
 
 **CS50 Final Project**  
 Built with ❤️ using **Python** & **PyQt5**
