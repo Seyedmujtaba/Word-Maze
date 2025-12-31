@@ -563,7 +563,9 @@ class GameScreen(QWidget):
         status.addWidget(self.lbl_msg)
 
         self.slots_container = QWidget()
+        self.slots_container.setSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
         self.slots_layout = QVBoxLayout(self.slots_container)
+
         self.slots_layout.setContentsMargins(0, 0, 0, 0)
         self.slots_layout.setSpacing(S(12))
         self.slots_layout.setAlignment(Qt.AlignCenter)
@@ -695,13 +697,14 @@ class GameScreen(QWidget):
         size = S(30)
         full_scaled = self._life_pix_full.scaled(size, size, Qt.KeepAspectRatio, Qt.SmoothTransformation)
 
-        for _ in range(self.state.lives):
+        for _ in range(self.state.lives_left):
             dot = QLabel()
             dot.setFixedSize(size, size)
             dot.setAlignment(Qt.AlignCenter)
             dot.setPixmap(full_scaled)
             self.lives_layout.addWidget(dot)
             self.life_dots.append(dot)
+
 
     def _sync_all(self):
         self._sync_slots()
