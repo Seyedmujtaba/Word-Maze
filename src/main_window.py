@@ -237,7 +237,6 @@ class AylaDialog(QDialog):
         title.setAlignment(Qt.AlignCenter)
         title.setFont(QFont("Segoe UI", F(20), QFont.Bold))
 
-        msg = QLabel("mujtaba loves you Ayla")
         msg.setWordWrap(True)
         msg.setAlignment(Qt.AlignCenter)
         msg.setFont(QFont("Segoe UI", F(16), QFont.DemiBold))
@@ -1000,12 +999,6 @@ class WordMazeWindow(QMainWindow):
         self._player = player
         self._category = category_display
         self._difficulty = difficulty_display
-
-        if player.strip().lower() == "ayla":
-            dlg = AylaDialog(self)
-            dlg.proceed.connect(lambda: self._start_game_after_dialog(category_display, difficulty_display))
-            dlg.exec_()
-            return
 
         self._start_game_after_dialog(category_display, difficulty_display)
 
